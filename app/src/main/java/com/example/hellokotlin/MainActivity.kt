@@ -1,20 +1,20 @@
 package com.example.hellokotlin
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.example.hellokotlin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val button = findViewById<Button>(R.id.myButon)
-        val textView = findViewById<TextView>(R.id.myTextView)
-
-        button.setOnClickListener {
-            textView.text = "Andrey"
+        binding.myButon.setOnClickListener {
+            binding.myTextView.text = "Andrey"
         }
 
     }
